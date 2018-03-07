@@ -146,6 +146,6 @@ function callSendAPI(sender_psid, response) {
 
 
 // Spin up the server
-// app.listen(app.get('port'), function() {
-	// console.log('running on port', app.get('port'))
-// })
+ app.listen(app.get('port'), function() {
+	 console.log('running on port', app.get('port'))
+ })
