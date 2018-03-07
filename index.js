@@ -3,6 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
+const PAGE_ACESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 
 app.set('port', (process.env.PORT || 5000))
@@ -35,9 +36,29 @@ app.post('/webhook/', function (req, res) {
     }
 	res.send('Sucessfull')
     res.sendStatus(200)
+	sendTextMessage(sender, "Hello")
 })
 
+const token = "EAACxWwMMMN4BAOC4nQ3QyAL5ZBQVXoBgVbPozukZCJ1V6SZCPZAzklAdyRIxJ6iCInZCLuPw7pYPq7R84qfZC2TSBGzF0phxmDdzQJYygUCa5hFW1QlMhAqH1ZAbAcHb2gojTbR8b1EJFysvpVRZBIhAUiWjT1e6xE4Vxs5mXT8XGwZDZD"
 
+function sendTextMessage(sender, text) {
+    let messageData = { text:text }
+    request({
+	    url: 'https://graph.facebook.com/v2.6/me/messages',
+	    qs: {access_token:token},
+	    method: 'POST',
+		json: {
+		    recipient: {id:sender},
+			message: messageData,
+		}
+	}, function(error, response, body) {
+		if (error) {
+		    console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+		    console.log('Error: ', response.body.error)
+	    }
+    })
+}
 
 
 
