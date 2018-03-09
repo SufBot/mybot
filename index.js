@@ -213,7 +213,7 @@ function handlePostback(sender_psid, received_postback) {
               "webview_height_ratio": "tall"
             }
           }
-        ]  
+        ]
       }
     }
   }
