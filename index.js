@@ -77,14 +77,14 @@ const token = "EAACxWwMMMN4BAOC4nQ3QyAL5ZBQVXoBgVbPozukZCJ1V6SZCPZAzklAdyRIxJ6iC
 function handleMessage(sender_psid, received_message) {
   let response;
   
-  // Checks if the message contains text
+/*   // Checks if the message contains text
   if (received_message.text) {    
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
       "text": `You sent the message: "${received_message.text}". Now send me an image!`
-    }
-  } else if (received_message.attachments) {
+    } */
+   if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
     response = {
@@ -93,18 +93,18 @@ function handleMessage(sender_psid, received_message) {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Is this the right picture?",
-            "subtitle": "Tap a button to answer.",
+            "title": "C'est la bonne photo ?",
+            "subtitle": "Appuie pour répondre :",
             "image_url": attachment_url,
             "buttons": [
               {
                 "type": "postback",
-                "title": "Yes!",
+                "title": "Oui !",
                 "payload": "yes",
               },
               {
                 "type": "postback",
-                "title": "No!",
+                "title": "Non !",
                 "payload": "no",
               }
             ],
@@ -127,10 +127,10 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'yes') {
-    response = { "text": "Thanks!" }
+    response = { "text": "Merci !" }
 	callSendAPI(sender_psid, response);
   } else if (payload === 'no') {
-    response = { "text": "Oops, I'm sorry." }
+    response = { "text": "Oups, essaie encore..." }
 	callSendAPI(sender_psid, response);
   }
   if(payload === 'GET_STARTED') {
@@ -154,6 +154,20 @@ function handlePostback(sender_psid, received_postback) {
   }
   callSendAPI(sender_psid, response);
   }
+  
+  if(payload ==='Taux'){
+	response = { "text": "Se former c'est important !" }
+	callSendAPI(sender_psid, response);
+  }
+  if(payload ==='Autre'){
+	response = { "text": "Pose ta question, on y répondra avec plaisir !" }
+	callSendAPI(sender_psid, response);
+  }
+  if(payload ==='Feu'){
+	response = { "text": "Le feu n'est pas une poubelle ;)" }
+	callSendAPI(sender_psid, response);
+  }
+  
   // Send the message to acknowledge the postback
 }
 
