@@ -179,8 +179,6 @@ function handlePostback(sender_psid, received_postback) {
   }
   
   
-  
-  
   if(payload ==='Qui'){
 	response = {
     "attachment": {
