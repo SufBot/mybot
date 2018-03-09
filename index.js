@@ -180,6 +180,7 @@ function handlePostback(sender_psid, received_postback) {
   
   
   if(payload ==='Qui'){
+	console.log("QQUIII");
 	response = {
     "attachment": {
       "type": "template",
