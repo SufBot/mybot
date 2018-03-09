@@ -58,7 +58,8 @@ app.post('/webhook', (req, res) => {
 		handleMessage(sender_psid, webhook_event.message);        
 	  }else if (webhook_event.message.quick_reply){
 		handleQuickReply(sender_psid, webhook_event.message.quick_reply);
-	  }else if (webhook_event.postback) {
+	  }
+	  if (webhook_event.postback) {
 		handlePostback(sender_psid, webhook_event.postback);
 	  }
 	  
