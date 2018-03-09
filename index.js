@@ -83,13 +83,11 @@ function handleQuickReply(sender_psid, received_message) {
   
    if (received_message.payload === 'Taux') {
 	response = { "text": "Se former c'est important !" }
-	callSendAPI(sender_psid, response);
    }
    if(received_message.payload ==='Autre'){
 	response = { "text": "Pose ta question, on y répondra avec plaisir !" }
-	callSendAPI(sender_psid, response);
    }
-   
+   callSendAPI(sender_psid, response);
 }
 
 
