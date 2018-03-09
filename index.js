@@ -58,6 +58,8 @@ app.post('/webhook', (req, res) => {
 		handleMessage(sender_psid, webhook_event.message);        
 	  } else if (webhook_event.postback) {
 		handlePostback(sender_psid, webhook_event.postback);
+	  }else if (webhook_event.message.quick_reply){
+		handleQuickReply(sender_psid, webhook_event.message.quick_reply);
 	  }
 	  
 	});
@@ -73,6 +75,19 @@ app.post('/webhook', (req, res) => {
 });
 
 const token = "EAACxWwMMMN4BAOC4nQ3QyAL5ZBQVXoBgVbPozukZCJ1V6SZCPZAzklAdyRIxJ6iCInZCLuPw7pYPq7R84qfZC2TSBGzF0phxmDdzQJYygUCa5hFW1QlMhAqH1ZAbAcHb2gojTbR8b1EJFysvpVRZBIhAUiWjT1e6xE4Vxs5mXT8XGwZDZD"
+
+function handleQuickReply(sender_psid, received_message) {
+  let response;
+  if(received_message.payload === 'taux'){
+	response = { "text": "Se former c'est important !" }
+	callSendAPI(sender_psid, response);
+  }
+  if(received_message.payload === 'Autre'){
+	response = { "text": "N'hésite pas à poser ta question." }
+	callSendAPI(sender_psid, response);
+  }
+}
+
 
 function handleMessage(sender_psid, received_message) {
   let response;
