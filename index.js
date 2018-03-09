@@ -178,6 +178,48 @@ function handlePostback(sender_psid, received_postback) {
 	callSendAPI(sender_psid, response);
   }
   
+  
+  
+  
+  if(payload ==='Qui'){
+	response = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "list",
+        "top_element_style": "compact",
+        "elements": [
+          {
+            "title": "Titre 1",
+            "subtitle": "Sous titre 1",
+            "image_url": "http://www.lamallesuf.com/Files/27900/Img/20/LOGO-AVENTURE.jpg",          
+            "buttons": [
+              {
+                "title": "View",
+                "type": "web_url",
+                "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
+                "messenger_extensions": true,
+                "webview_height_ratio": "full",          
+              }
+            ]
+          },
+          {
+            "title": "Titre 2",
+            "subtitle": "Sous titre 2",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall"
+            }
+          }
+        ]  
+      }
+    }
+  }
+	callSendAPI(sender_psid, response);
+  }
+  
   // Send the message to acknowledge the postback
 }
 
