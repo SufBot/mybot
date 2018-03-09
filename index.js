@@ -136,6 +136,24 @@ function handlePostback(sender_psid, received_postback) {
   if(payload === 'GET_STARTED') {
 	  callSendAPIGetName(sender_psid);
   }
+  if(payload === 'CEP'){
+	  let response ={
+    "text": "A quel sujet ?",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Taux d'encadrement",
+        "payload":"Taux"
+      },
+      {
+        "content_type":"text",
+        "title":"Autre",
+        "payload":"Autre"
+      }
+    ]
+  }
+  callSendAPI(sender_psid, response);
+  }
   // Send the message to acknowledge the postback
 }
 
