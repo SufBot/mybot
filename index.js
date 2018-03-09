@@ -56,7 +56,8 @@ app.post('/webhook', (req, res) => {
 	  // pass the event to the appropriate handler function
 	  if (webhook_event.message) {
 		handleMessage(sender_psid, webhook_event.message);        
-	  }else if (webhook_event.message.quick_reply){
+	  }
+	  if (webhook_event.message.quick_reply){
 		handleQuickReply(sender_psid, webhook_event.message.quick_reply);
 	  }
 	  if (webhook_event.postback) {
