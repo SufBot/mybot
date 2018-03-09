@@ -145,10 +145,11 @@ function callSendAPIGetName(sender_psid) {
     "qs": { "access_token": token,"fields": "first_name" },
     "method": "GET",
   }, (err, res, body) => {
+	let name=body.first_name;
     if (!err) {
-		let response = { "text": "Bonjour "+body.first_name }
-	callSendAPI(sender_psid, response);
-      console.log('Got a name !'+body.first_name)
+		console.log('Got a name !'+body.first_name)
+		let response = { "text": "Bonjour "+name }
+		callSendAPI(sender_psid, response);
     } else {
       console.error("Unable to get name:" + err);
     }
