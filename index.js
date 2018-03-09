@@ -128,15 +128,32 @@ function handlePostback(sender_psid, received_postback) {
   // Set the response based on the postback payload
   if (payload === 'yes') {
     response = { "text": "Thanks!" }
+	callSendAPI(sender_psid, response);
   } else if (payload === 'no') {
     response = { "text": "Oops, I'm sorry." }
+	callSendAPI(sender_psid, response);
   }
   if(payload === 'GET_STARTED') {
-	  response = { "text": "Hello sir !"}
+	  callSendAPIGetName(sender_psid);
   }
   // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
 }
+
+function callSendAPIGetName(sender_psid) {
+	request({
+    "uri": "https://graph.facebook.com/v2.6/"+sender_psid,
+    "qs": { "access_token": token,"fields": "first_name" },
+    "method": "GET",
+  }, (err, res, body) => {
+    if (!err) {
+      console.log('message sent!')
+    } else {
+      console.error("Unable to get name:" + err);
+    }
+	console.log("BODY"+body);
+  }); 
+}
+
 
 function callSendAPI(sender_psid, response) {
   // Construct the message body
