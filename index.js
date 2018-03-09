@@ -197,7 +197,7 @@ function handlePostback(sender_psid, received_postback) {
                 "type": "web_url",
                 "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
                 "messenger_extensions": true,
-                "webview_height_ratio": "full",          
+                "webview_height_ratio": "full"          
               }
             ]
           },
