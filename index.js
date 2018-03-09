@@ -56,13 +56,9 @@ app.post('/webhook', (req, res) => {
 	  // pass the event to the appropriate handler function
 	  if (webhook_event.message) {
 		handleMessage(sender_psid, webhook_event.message);        
-	  }
-	  if (webhook_event.postback) {
+	  } else if (webhook_event.postback) {
 		handlePostback(sender_psid, webhook_event.postback);
 	  }
- 	  if (webhook_event.message.quick_reply) {
-		handleQuickReply(sender_psid, webhook_event.message.quick_reply);
-	  } 
 	  
 	});
 
@@ -77,22 +73,6 @@ app.post('/webhook', (req, res) => {
 });
 
 const token = "EAACxWwMMMN4BAOC4nQ3QyAL5ZBQVXoBgVbPozukZCJ1V6SZCPZAzklAdyRIxJ6iCInZCLuPw7pYPq7R84qfZC2TSBGzF0phxmDdzQJYygUCa5hFW1QlMhAqH1ZAbAcHb2gojTbR8b1EJFysvpVRZBIhAUiWjT1e6xE4Vxs5mXT8XGwZDZD"
-
-function handleQuickReply(sender_psid, received_message) {
-  let response;
-  
-   if (received_message.payload === 'Taux') {
-	response = { "text": "Se former c'est important !" }
-   }
-   if(received_message.payload ==='Autre'){
-	response = { "text": "Pose ta question, on y répondra avec plaisir !" }
-   }
-   callSendAPI(sender_psid, response);
-}
-
-
-
-
 
 function handleMessage(sender_psid, received_message) {
   let response;
@@ -132,10 +112,10 @@ function handleMessage(sender_psid, received_message) {
         }
       }
     }
-	callSendAPI(sender_psid, response); 
   } 
   
-  // Send the response message   
+  // Send the response message
+  callSendAPI(sender_psid, response);    
 }
 
 // Handles messaging_postbacks events
@@ -148,10 +128,10 @@ function handlePostback(sender_psid, received_postback) {
   // Set the response based on the postback payload
   if (payload === 'yes') {
     response = { "text": "Merci !" }
-	//callSendAPI(sender_psid, response);
+	callSendAPI(sender_psid, response);
   } else if (payload === 'no') {
     response = { "text": "Oups, essaie encore..." }
-	//callSendAPI(sender_psid, response);
+	callSendAPI(sender_psid, response);
   }
   if(payload === 'GET_STARTED') {
 	  callSendAPIGetName(sender_psid);
@@ -172,23 +152,23 @@ function handlePostback(sender_psid, received_postback) {
       }
     ]
   }
+  callSendAPI(sender_psid, response);
   }
   
   if(payload ==='Taux'){
 	response = { "text": "Se former c'est important !" }
-	//callSendAPI(sender_psid, response);
+	callSendAPI(sender_psid, response);
   }
   if(payload ==='Autre'){
 	response = { "text": "Pose ta question, on y répondra avec plaisir !" }
-	//callSendAPI(sender_psid, response);
+	callSendAPI(sender_psid, response);
   }
   if(payload ==='Feu'){
 	response = { "text": "Le feu n'est pas une poubelle ;)" }
-	//callSendAPI(sender_psid, response);
+	callSendAPI(sender_psid, response);
   }
   
   // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
 }
 
 function callSendAPIGetName(sender_psid) {
