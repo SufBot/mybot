@@ -38,16 +38,16 @@ app.post('/webhook', (req, res) => {
 
     // Iterate over each entry - there may be multiple if batched
 	body.entry.forEach(function(entry) {
-		console.log("HEY : "+entry.messaging)
+		console.log("Object length:  "+entry.messaging.length)
 
 	  // Gets the body of the webhook event
 	  let webhook_event = entry.messaging[0];
-	  console.log(webhook_event);
+	  console.log("message: "webhook_event);
 
 
 	  // Get the sender PSID
 	  let sender_psid = webhook_event.sender.id;
-	  console.log('Sender PSID: ' + sender_psid);
+	  //console.log('Sender PSID: ' + sender_psid);
 
 	  // Check if the event is a message or postback and
 	  // pass the event to the appropriate handler function
@@ -163,5 +163,5 @@ function callSendAPI(sender_psid, response) {
 
 // Spin up the server
  app.listen(app.get('port'), function() {
-	 console.log('running on port', app.get('port'))
+	 //console.log('running on port', app.get('port'))
  })
