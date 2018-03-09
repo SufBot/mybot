@@ -148,7 +148,7 @@ function callSendAPIGetName(sender_psid) {
     if (!err) {
 		let response = { "text": "Bonjour "+body.first_name }
 	callSendAPI(sender_psid, response);
-      console.log('Got a name !')
+      console.log('Got a name !'+body.first_name)
     } else {
       console.error("Unable to get name:" + err);
     }
