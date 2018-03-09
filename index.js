@@ -127,6 +127,9 @@ function handlePostback(sender_psid, received_postback) {
   } else if (payload === 'no') {
     response = { "text": "Oops, I'm sorry." }
   }
+  if(payload === 'GET_STARTED') {
+	  responde = { "text": "Hello !"}
+  }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 }
