@@ -137,7 +137,7 @@ function handlePostback(sender_psid, received_postback) {
 	  callSendAPIGetName(sender_psid);
   }
   if(payload === 'CEP'){
-	  let response ={
+	response ={
     "text": "A quel sujet ?",
     "quick_replies":[
       {
