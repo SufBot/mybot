@@ -182,6 +182,7 @@ function handlePostback(sender_psid, received_postback) {
   if(payload ==='Qui'){
 	console.log("QQUIII");
 	response = {
+    {
     "attachment": {
       "type": "template",
       "payload": {
@@ -189,30 +190,61 @@ function handlePostback(sender_psid, received_postback) {
         "top_element_style": "compact",
         "elements": [
           {
-            "title": "Titre 1",
-            "subtitle": "Sous titre 1",
-            "image_url": "http://www.lamallesuf.com/Files/27900/Img/20/LOGO-AVENTURE.jpg",          
+            "title": "Classic T-Shirt Collection",
+            "subtitle": "See all our colors",
+            "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",          
             "buttons": [
               {
                 "title": "View",
                 "type": "web_url",
-                "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
+                "url": "https://peterssendreceiveapp.ngrok.io/collection",
                 "messenger_extensions": true,
-                "webview_height_ratio": "full"          
+                "webview_height_ratio": "tall",
+                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"            
               }
             ]
           },
           {
-            "title": "Titre 2",
-            "subtitle": "Sous titre 2",
+            "title": "Classic White T-Shirt",
+            "subtitle": "See all our colors",
             "default_action": {
               "type": "web_url",
-              "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
+              "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
               "messenger_extensions": true,
-              "webview_height_ratio": "tall"
+              "webview_height_ratio": "tall",
+              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
             }
+          },
+          {
+            "title": "Classic Blue T-Shirt",
+            "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+            "subtitle": "100% Cotton, 200% Comfortable",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall",
+              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+            },
+            "buttons": [
+              {
+                "title": "Shop Now",
+                "type": "web_url",
+                "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+                "messenger_extensions": true,
+                "webview_height_ratio": "tall",
+                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"            
+              }
+            ]        
           }
-        ]
+        ],
+         "buttons": [
+          {
+            "title": "View More",
+            "type": "postback",
+            "payload": "payload"            
+          }
+        ]  
       }
     }
   }
