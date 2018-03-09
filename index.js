@@ -8,7 +8,7 @@ const request = require('request')
 
 app.set('port', (process.env.PORT || 5000))
 
-// Process application/x-www-form-urlencoded
+// Procss application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}))
 
 // Process application/json
@@ -34,40 +34,41 @@ app.post('/webhook', (req, res) => {
   let body = req.body;
 
   // Check the webhook event is from a Page subscription
-  if (body.object === 'page') {
+	if (body.object === 'page') {
 
-    // Iterate over each entry - there may be multiple if batched
-	body.entry.forEach(function(entry) {
-		
-		entry.messaging.forEach(function(event) {
-		  // Gets the body of the webhook event
-		  //let webhook_event = entry.messaging[0];
-		  //console.log(webhook_event);
+		// Iterate over each entry - there may be multiple if batched
+		body.entry.forEach(function(entry) {
+			
+			entry.messaging.forEach(function(event) {
+			  // Gets the body of the webhook event
+			  //let webhook_event = entry.messaging[0];
+			  //console.log(webhook_event);
 
 
-		  // Get the sender PSID
-		  let sender_psid = event.sender.id;
-		  //console.log('Sender PSID: ' + sender_psid);
+			  // Get the sender PSID
+			  let sender_psid = event.sender.id;
+			  //console.log('Sender PSID: ' + sender_psid);
 
-		  // Check if the event is a message or postback and
-		  // pass the event to the appropriate handler function
-		  if (event.message) {
-			handleMessage(sender_psid, event.message);        
-		  } else if (event.postback) {
-			handlePostback(sender_psid, event.postback);
-		  }
-		  
-		});
-		
-	}
+			  // Check if the event is a message or postback and
+			  // pass the event to the appropriate handler function
+			  if (event.message) {
+				handleMessage(sender_psid, event.message);        
+			  } else if (event.postback) {
+				handlePostback(sender_psid, event.postback);
+			  }
+			  
+			});
+			
+		}
 
-    // Return a '200 OK' response to all events
-    res.status(200).send('EVENT_RECEIVED');
+		// Return a '200 OK' response to all events
+		res.status(200).send('EVENT_RECEIVED');
 
-  } else {
-    // Return a '404 Not Found' if event is not from a page subscription
-    res.sendStatus(404);
-  }
+	} else
+		{
+			// Return a '404 Not Found' if event is not from a page subscription
+			res.sendStatus(404);
+		}
 
 });
 
