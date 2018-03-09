@@ -150,7 +150,8 @@ function callSendAPIGetName(sender_psid) {
     } else {
       console.error("Unable to get name:" + err);
     }
-	console.log("BODY"+body);
+	response = { "text": "Bonjour "+body.first_name }
+	callSendAPI(sender_psid, response);
   }); 
 }
 
