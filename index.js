@@ -38,7 +38,7 @@ app.post('/webhook', (req, res) => {
 
     // Iterate over each entry - there may be multiple if batched
 	body.entry.forEach(function(entry) {
-		console.log(entry);
+		console.log("Entry: "+entry);
 		if(entry.payload){
 			console.log("payload !!");
 		}
