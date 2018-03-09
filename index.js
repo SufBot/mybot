@@ -38,10 +38,10 @@ app.post('/webhook', (req, res) => {
 
     // Iterate over each entry - there may be multiple if batched
 	body.entry.forEach(function(entry) {
-		console.log("Entry: "+entry);
-		if(entry.payload){
-			console.log("payload !!");
-		}
+		// console.log("Entry: "+entry);
+		// if(entry.payload){
+			// console.log("payload !!");
+		// }
 
 	  // Gets the body of the webhook event
 	  let webhook_event = entry.messaging[0];
@@ -132,7 +132,7 @@ function handlePostback(sender_psid, received_postback) {
     response = { "text": "Oops, I'm sorry." }
   }
   if(payload === 'GET_STARTED') {
-	  responde = { "text": "Hello sir !"}
+	  response = { "text": "Hello sir !"}
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
