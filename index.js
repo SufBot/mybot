@@ -181,7 +181,7 @@ function handleMessage(sender_psid, received_message) {
 	let response
 	if(received_message.text==='Retour' || received_message.text==='retour'){
 		let response = {
-		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
+		"text": "Re-bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Rappelle moi juste qui tu es ⁉️",
 		"quick_replies":[
 			  {
 				"content_type":"text",
