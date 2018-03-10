@@ -156,7 +156,6 @@ function handleQuickReply(sender_psid, received_message) {
   
     if(received_message.payload === 'Contact'){
 	response = { "text": "Parfait, voici la ligne directe de l'ENE : 0183757140"}
-	}
 	callSendAPI(sender_psid, response);
 	response = {
     "attachment":{
