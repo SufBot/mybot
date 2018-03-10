@@ -77,7 +77,7 @@ app.post('/webhook', (req, res) => {
 
 });
 
-const mytoken = process.env.token;
+const token = "EAACxWwMMMN4BAOC4nQ3QyAL5ZBQVXoBgVbPozukZCJ1V6SZCPZAzklAdyRIxJ6iCInZCLuPw7pYPq7R84qfZC2TSBGzF0phxmDdzQJYygUCa5hFW1QlMhAqH1ZAbAcHb2gojTbR8b1EJFysvpVRZBIhAUiWjT1e6xE4Vxs5mXT8XGwZDZD"
 
 function handleQuickReply(sender_psid, received_message) {
   let response;
@@ -234,7 +234,7 @@ function handlePostback(sender_psid, received_postback) {
 function callSendAPIGetName(sender_psid) {
 	request({
     "uri": "https://graph.facebook.com/v2.6/"+sender_psid,
-    "qs": { "access_token": mytoken,"fields": "first_name" },
+    "qs": { "access_token": token,"fields": "first_name" },
     "method": "GET",
   }, (err, res, body) => {
     if (!err) {
@@ -262,7 +262,7 @@ function callSendAPI(sender_psid, response) {
   // Send the HTTP request to the Messenger Platform
   request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": mytoken },
+    "qs": { "access_token": token },
     "method": "POST",
     "json": request_body
   }, (err, res, body) => {
