@@ -126,7 +126,6 @@ function handlePostback(sender_psid, received_postback) {
   }
   
   // Send the message to acknowledge the postback
-}
 
 function callSendAPIGetName(sender_psid) {
 	request({
@@ -137,7 +136,7 @@ function callSendAPIGetName(sender_psid) {
     if (!err) {
 		let bodyObj = JSON.parse(body);
         let name = bodyObj.first_name;
-		let response = { "text":"Bonjour "+name};
+		let response = { "text":"Bonjour "+name+", \u000A Ti ta ti ti ! \u1F916"};
 		callSendAPI(sender_psid, response);
     } else {
       console.error("Unable to get name:" + err);
