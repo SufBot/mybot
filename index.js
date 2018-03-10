@@ -79,6 +79,7 @@ app.post('/webhook', (req, res) => {
 
 const token = process.env.mytoken
 
+// Handles quick replies
 function handleQuickReply(sender_psid, received_message) {
   let response;
   if(received_message.payload === 'Taux'){
@@ -93,47 +94,7 @@ function handleQuickReply(sender_psid, received_message) {
 
 
 function handleMessage(sender_psid, received_message) {
-  let response;
   
-/*   // Checks if the message contains text
-  if (received_message.text) {    
-    // Create the payload for a basic text message, which
-    // will be added to the body of our request to the Send API
-    response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an image!`
-    } */
-   if (received_message.attachments) {
-    // Get the URL of the message attachment
-    let attachment_url = received_message.attachments[0].payload.url;
-    response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "C'est la bonne photo ?",
-            "subtitle": "Appuie pour répondre :",
-            "image_url": attachment_url,
-            "buttons": [
-              {
-                "type": "postback",
-                "title": "Oui !",
-                "payload": "yes",
-              },
-              {
-                "type": "postback",
-                "title": "Non !",
-                "payload": "no",
-              }
-            ],
-          }]
-        }
-      }
-    }
-  } 
-  
-  // Send the response message
-  callSendAPI(sender_psid, response);    
 }
 
 // Handles messaging_postbacks events
@@ -143,99 +104,25 @@ function handlePostback(sender_psid, received_postback) {
   // Get the payload for the postback
   let payload = received_postback.payload;
 
-  // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Merci !" }
-	callSendAPI(sender_psid, response);
-  } else if (payload === 'no') {
-    response = { "text": "Oups, essaie encore..." }
-	callSendAPI(sender_psid, response);
-  }
   if(payload === 'GET_STARTED') {
-	  callSendAPIGetName(sender_psid);
-  }
-  if(payload === 'CEP'){
-	response ={
-    "text": "A quel sujet ?",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Taux d'encadrement",
-        "payload":"Taux"
-      },
-      {
-        "content_type":"text",
-        "title":"Autre",
-        "payload":"Autre"
-      }
-    ]
-  }
-  callSendAPI(sender_psid, response);
-  }
-  
-  if(payload ==='Feu'){
-	response = { "text": "Le feu n'est pas une poubelle ;)" }
-	callSendAPI(sender_psid, response);
-  }
-  
-  
-  if(payload ==='Liste'){
-	response ={
-		"attachment": {
-		  "type": "template",
-		  "payload": {
-			"template_type": "list",
-			"top_element_style": "large",
-			"elements": [
-						 {
-				"title": "Titre 0",
-				"image_url": "https://scontent-cdt1-1.xx.fbcdn.net/v/t31.0-8/27164751_2036625669887964_7499419707466812797_o.jpg?oh=1efd418037470fc01a57440b15c67ff5&oe=5B49783A",
-				"subtitle": "Sous titre 0",
-				"default_action": {
-				  "type": "web_url",
-				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
-				  "messenger_extensions": true,
-				  "webview_height_ratio": "full"
-				}    
+	  	response ={
+		"text": "Qui est tu ?",
+		"quick_replies":[
+			  {
+				"content_type":"text",
+				"title":"Un chef",
+				"payload":"Chef"
 			  },
-						  {
-				"title": "Titre 1",
-				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",
-				"subtitle": "Sous titre 1",
-				"default_action": {
-				  "type": "web_url",
-				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
-				  "messenger_extensions": true,
-				  "webview_height_ratio": "full"
-				}      
-			  },
-			  			  {
-				"title": "Titre 2",
-				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",
-				"subtitle": "Sous titre 2",
-				"default_action": {
-				  "type": "web_url",
-				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
-				  "messenger_extensions": true,
-				  "webview_height_ratio": "full"
-				}      
-			  },
-			  			  {
-				"title": "Titre 3",
-				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",
-				"subtitle": "Sous titre 3",
-				"default_action": {
-				  "type": "web_url",
-				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
-				  "messenger_extensions": true,
-				  "webview_height_ratio": "full"
-				}      
+			  {
+				"content_type":"text",
+				"title":"Un scout",
+				"payload":"Scout"
 			  }
-			]  
-		  }
+			]
 		}
+		callSendAPI(sender_psid, response);
+		callSendAPIGetName(sender_psid);
 	}
-	callSendAPI(sender_psid, response);
   }
   
   // Send the message to acknowledge the postback
@@ -250,7 +137,7 @@ function callSendAPIGetName(sender_psid) {
     if (!err) {
 		let bodyObj = JSON.parse(body);
         let name = bodyObj.first_name;
-		let response = { "text":"Bonjour "+name };
+		let response = { 'text":"Bonjour '+name+', \u000A Ti ta ti ti ! \u1F916'};
 		callSendAPI(sender_psid, response);
     } else {
       console.error("Unable to get name:" + err);
