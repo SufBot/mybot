@@ -92,7 +92,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  },
 			  {
 				"content_type":"text",
-				"title":"Taux d’encadrement-CEP",
+				"title":"CEP-Taux d'encadrement",
 				"payload":"CEP"
 			  },
 			  {
@@ -170,7 +170,7 @@ function handleQuickReply(sender_psid, received_message) {
   }
   
   if(received_message.payload === 'ecris'){
-	response = { "text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 P.S : c’est un équipier sympa ! "}
+	response = { "text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 \u000A P.S : c’est un équipier sympa ! "}
 	callSendAPI(sender_psid, response);
   }
   
