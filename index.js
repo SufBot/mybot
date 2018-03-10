@@ -185,7 +185,7 @@ function handlePostback(sender_psid, received_postback) {
 		  "type": "template",
 		  "payload": {
 			"template_type": "list",
-			//"top_element_style": "compact",
+			"top_element_style": "large",
 			"elements": [
 						 {
 				"title": "Titre 0",
