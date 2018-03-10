@@ -165,13 +165,18 @@ function handleQuickReply(sender_psid, received_message) {
 			"url":"https://cuke7.github.io/mybot/image1.png", 
 			"is_reusable":true
 			}
-		}
+		},
+		"quick_replies":[{"content_type":"text","title":"Retour au menu\u21A9","payload":"Autre question"}]
 	}
 	callSendAPI(sender_psid, response);
   }
   
   if(received_message.payload === 'ecris'){
-	response = { "text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 \u000A P.S : c’est un équipier sympa ! "}
+	response = { 
+		"text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 \u000A P.S : c’est un équipier sympa ! ",
+		"quick_replies":[{"content_type":"text","title":"Retour au menu\u21A9","payload":"Autre question"}
+		]
+		}
 	callSendAPI(sender_psid, response);
   }
   
@@ -227,7 +232,7 @@ function handleMessage(sender_psid, received_message) {
 		}
 		callSendAPI(sender_psid, response);
 	} */
-	callSendAPI(sender_psid, response = { "text": "l","quick_replies":[{"content_type":"text","title":"Retour au menu\u21A9","payload":"Autre question"}]});
+	//callSendAPI(sender_psid, response = { "text": "l","quick_replies":[{"content_type":"text","title":"Retour au menu\u21A9","payload":"Autre question"}]});
 }
 
 // Handles messaging_postbacks events
