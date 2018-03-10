@@ -98,7 +98,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  {
 				"content_type":"text",
 				"title":"Envoie de 📸",
-				"payload":"Autre"
+				"payload":"Photo chef"
 			  },
 			  {
 				"content_type":"text",
@@ -115,11 +115,42 @@ function handleQuickReply(sender_psid, received_message) {
 	callSendAPI(sender_psid, response);
   }
   if(received_message.payload === 'éclaireur'){
-	response = { "text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 🤖" }
+	response = { "text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 🤖",
+			"quick_replies":[
+			  {
+				"content_type":"text",
+				"title":"Écris un article pour Woodcraft 📗📝",
+				"payload":"woodcraft"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Envoie des 📸",
+				"payload":"Photo scout"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Écris moi 📩",
+				"payload":"ecris"
+			  }
+			]
+	}
 	callSendAPI(sender_psid, response);
   }
   if(received_message.payload === 'Autre'){
-	response = { "text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 💪" }
+	response = { "text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 💪",
+				"quick_replies":[
+			  {
+				"content_type":"text",
+				"title":"Envoie des 📸",
+				"payload":"Photo autre"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Écris moi 📩",
+				"payload":"ecris"
+			  }
+			]
+	}
 	callSendAPI(sender_psid, response);
   }
 }
