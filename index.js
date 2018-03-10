@@ -121,7 +121,7 @@ function callSendAPIGetName(sender_psid) {
 		let bodyObj = JSON.parse(body);
         let name = bodyObj.first_name;
 		let response = {
-		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! \u1F47E Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻",
+		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
 		"quick_replies":[
 			  {
 				"content_type":"text",
