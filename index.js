@@ -178,6 +178,30 @@ function handleQuickReply(sender_psid, received_message) {
 
 
 function handleMessage(sender_psid, received_message) {
+	let response
+	if(received_message.text==='Retour' || received_message.text==='retour'){
+		let response = {
+		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
+		"quick_replies":[
+			  {
+				"content_type":"text",
+				"title":"Un chef éclaireur 👨",
+				"payload":"Chef"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Un éclaireur 👦🏼",
+				"payload":"éclaireur"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Autre 😎",
+				"payload":"Autre"
+			  }
+			]
+		}
+		callSendAPI(sender_psid, response);
+	}
 }
 
 // Handles messaging_postbacks events
