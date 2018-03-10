@@ -121,7 +121,7 @@ function callSendAPIGetName(sender_psid) {
 		let bodyObj = JSON.parse(body);
         let name = bodyObj.first_name;
 		let response = {
-		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! \u1F916",
+		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! \u1F47E",
 		"quick_replies":[
 			  {
 				"content_type":"text",
