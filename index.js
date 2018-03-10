@@ -198,8 +198,7 @@ function handlePostback(sender_psid, received_postback) {
 					"type": "web_url",
 					"url": "https://peterssendreceiveapp.ngrok.io/collection",
 					"messenger_extensions": true,
-					"webview_height_ratio": "tall",
-					"fallback_url": "https://peterssendreceiveapp.ngrok.io/"            
+					"webview_height_ratio": "full"          
 				  }
 				]
 			  },
@@ -210,8 +209,7 @@ function handlePostback(sender_psid, received_postback) {
 				  "type": "web_url",
 				  "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
 				  "messenger_extensions": true,
-				  "webview_height_ratio": "tall",
-				  "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+				  "webview_height_ratio": "full"
 				}
 			  },
 			  {
@@ -222,8 +220,7 @@ function handlePostback(sender_psid, received_postback) {
 				  "type": "web_url",
 				  "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
 				  "messenger_extensions": true,
-				  "webview_height_ratio": "tall",
-				  "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+				  "webview_height_ratio": "full"
 				},
 				"buttons": [
 				  {
@@ -231,17 +228,9 @@ function handlePostback(sender_psid, received_postback) {
 					"type": "web_url",
 					"url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
 					"messenger_extensions": true,
-					"webview_height_ratio": "tall",
-					"fallback_url": "https://peterssendreceiveapp.ngrok.io/"            
+					"webview_height_ratio": "full"           
 				  }
 				]        
-			  }
-			],
-			 "buttons": [
-			  {
-				"title": "View More",
-				"type": "postback",
-				"payload": "payload"            
 			  }
 			]  
 		  }
