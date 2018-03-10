@@ -82,12 +82,16 @@ const token = process.env.mytoken
 // Handles quick replies
 function handleQuickReply(sender_psid, received_message) {
   let response;
-  if(received_message.payload === 'Taux'){
-	response = { "text": "Se former c'est important !" }
+  if(received_message.payload === 'Chef'){
+	response = { "text": "Canon ! Merci de ton engagement pour ta troupe, comment puis-je aider ? 🤖" }
+	callSendAPI(sender_psid, response);
+  }
+  if(received_message.payload === 'éclaireur'){
+	response = { "text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 🤖" }
 	callSendAPI(sender_psid, response);
   }
   if(received_message.payload === 'Autre'){
-	response = { "text": "N'hésite pas à poser ta question." }
+	response = { "text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 💪" }
 	callSendAPI(sender_psid, response);
   }
 }
@@ -121,17 +125,22 @@ function callSendAPIGetName(sender_psid) {
 		let bodyObj = JSON.parse(body);
         let name = bodyObj.first_name;
 		let response = {
-		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
+		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ?️",
 		"quick_replies":[
 			  {
 				"content_type":"text",
-				"title":"Un chef",
+				"title":"Un chef éclaireurs 👨",
 				"payload":"Chef"
 			  },
 			  {
 				"content_type":"text",
-				"title":"Un scout",
-				"payload":"Scout"
+				"title":"Un éclaireur 👦🏼",
+				"payload":"éclaireur"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Autre 😎",
+				"payload":"Autre"
 			  }
 			]
 		}
