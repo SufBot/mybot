@@ -119,7 +119,7 @@ function handleQuickReply(sender_psid, received_message) {
 			"quick_replies":[
 			  {
 				"content_type":"text",
-				"title":"Écris un article pour Woodcraft 📗📝",
+				"title":"Écris pour Woodcraft 📗📝",
 				"payload":"woodcraft"
 			  },
 			  {
@@ -169,7 +169,7 @@ function handleQuickReply(sender_psid, received_message) {
 	callSendAPI(sender_psid, response);
   }
   
-  if(received_message.payload === 'Contact'){
+  if(received_message.payload === 'ecris'){
 	response = { "text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 P.S : c’est un équipier sympa ! "}
 	callSendAPI(sender_psid, response);
   }
