@@ -227,7 +227,7 @@ function handleMessage(sender_psid, received_message) {
 		}
 		callSendAPI(sender_psid, response);
 	} */
-	callSendAPI(sender_psid, response = { "text": "","quick_replies":[{"content_type":"text","title":"Retour au menu\u21A9","payload":"Autre question"}]});
+	callSendAPI(sender_psid, response = { "text": " ","quick_replies":[{"content_type":"text","title":"Retour au menu\u21A9","payload":"Autre question"}]});
 }
 
 // Handles messaging_postbacks events
