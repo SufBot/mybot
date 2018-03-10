@@ -179,8 +179,7 @@ function handlePostback(sender_psid, received_postback) {
   }
   
   
-  if(payload ==='Qui'){
-	console.log("QQUIII");
+  if(payload ==='Liste'){
 	response ={
 		"attachment": {
 		  "type": "template",
