@@ -92,7 +92,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  },
 			  {
 				"content_type":"text",
-				"title":"Taux d’encadrement - CEP ⁉️",
+				"title":"Taux d’encadrement-CEP",
 				"payload":"CEP"
 			  },
 			  {
@@ -168,6 +168,12 @@ function handleQuickReply(sender_psid, received_message) {
 	}
 	callSendAPI(sender_psid, response);
   }
+  
+  if(received_message.payload === 'Contact'){
+	response = { "text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 P.S : c’est un équipier sympa ! "}
+	callSendAPI(sender_psid, response);
+  }
+  
 }
 
 
@@ -202,7 +208,7 @@ function callSendAPIGetName(sender_psid) {
 		"quick_replies":[
 			  {
 				"content_type":"text",
-				"title":"Un chef éclaireurs 👨",
+				"title":"Un chef éclaireur 👨",
 				"payload":"Chef"
 			  },
 			  {
