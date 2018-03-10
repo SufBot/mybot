@@ -136,7 +136,7 @@ function callSendAPIGetName(sender_psid) {
     if (!err) {
 		let bodyObj = JSON.parse(body);
         let name = bodyObj.first_name;
-		let response = { "text":"Bonjour "+name+decodeURI(", \u000A Ti ta ti ti ! \u1F916")};
+		let response = { "text":"Bonjour "+name+decodeURI(", \u000A Ti ta ti ti ! \u23F3")};
 		callSendAPI(sender_psid, response);
     } else {
       console.error("Unable to get name:" + err);
