@@ -186,9 +186,20 @@ function handlePostback(sender_psid, received_postback) {
 		  "type": "template",
 		  "payload": {
 			"template_type": "list",
-			"top_element_style": "compact",
+			//"top_element_style": "compact",
 			"elements": [
-			  {
+						 {
+				"title": "Titre 0",
+				"image_url": "https://scontent-cdt1-1.xx.fbcdn.net/v/t31.0-8/27164751_2036625669887964_7499419707466812797_o.jpg?oh=1efd418037470fc01a57440b15c67ff5&oe=5B49783A",
+				"subtitle": "Sous titre 0",
+				"default_action": {
+				  "type": "web_url",
+				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
+				  "messenger_extensions": true,
+				  "webview_height_ratio": "full"
+				}    
+			  },
+						  {
 				"title": "Titre 1",
 				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",
 				"subtitle": "Sous titre 1",
