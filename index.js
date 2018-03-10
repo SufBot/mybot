@@ -83,7 +83,35 @@ const token = process.env.mytoken
 function handleQuickReply(sender_psid, received_message) {
   let response;
   if(received_message.payload === 'Chef'){
-	response = { "text": "Canon ! Merci de ton engagement pour ta troupe, comment puis-je aider ? 🤖" }
+	response = { "text": "Canon ! Merci de ton engagement pour ta troupe, comment puis-je aider ? 🤖",
+			"quick_replies":[
+			  {
+				"content_type":"text",
+				"title":"Mon camp scout 🏕",
+				"payload":"Camp"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Taux d’encadrement - CEP ⁉️",
+				"payload":"CEP"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Envoie de 📸",
+				"payload":"Autre"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Nous 📞?",
+				"payload":"Contact"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Écris moi 📩",
+				"payload":"ecris"
+			  }
+			]
+	}
 	callSendAPI(sender_psid, response);
   }
   if(received_message.payload === 'éclaireur'){
@@ -125,7 +153,7 @@ function callSendAPIGetName(sender_psid) {
 		let bodyObj = JSON.parse(body);
         let name = bodyObj.first_name;
 		let response = {
-		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ?️",
+		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
 		"quick_replies":[
 			  {
 				"content_type":"text",
