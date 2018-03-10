@@ -191,12 +191,12 @@ function handlePostback(sender_psid, received_postback) {
 			  {
 				"title": "Classic T-Shirt Collection",
 				"subtitle": "See all our colors",
-				"image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",          
+				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",          
 				"buttons": [
 				  {
 					"title": "View",
 					"type": "web_url",
-					"url": "https://peterssendreceiveapp.ngrok.io/collection",
+					"url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
 					"messenger_extensions": true,
 					"webview_height_ratio": "full"          
 				  }
@@ -207,18 +207,18 @@ function handlePostback(sender_psid, received_postback) {
 				"subtitle": "See all our colors",
 				"default_action": {
 				  "type": "web_url",
-				  "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
+				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
 				  "messenger_extensions": true,
 				  "webview_height_ratio": "full"
 				}
 			  },
 			  {
 				"title": "Classic Blue T-Shirt",
-				"image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",
 				"subtitle": "100% Cotton, 200% Comfortable",
 				"default_action": {
 				  "type": "web_url",
-				  "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
 				  "messenger_extensions": true,
 				  "webview_height_ratio": "full"
 				},
@@ -226,7 +226,7 @@ function handlePostback(sender_psid, received_postback) {
 				  {
 					"title": "Shop Now",
 					"type": "web_url",
-					"url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+					"url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
 					"messenger_extensions": true,
 					"webview_height_ratio": "full"           
 				  }
