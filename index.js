@@ -189,48 +189,37 @@ function handlePostback(sender_psid, received_postback) {
 			"top_element_style": "compact",
 			"elements": [
 			  {
-				"title": "Classic T-Shirt Collection",
-				"subtitle": "See all our colors",
-				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",          
-				"buttons": [
-				  {
-					"title": "View",
-					"type": "web_url",
-					"url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
-					"messenger_extensions": true,
-					"webview_height_ratio": "full"          
-				  }
-				]
-			  },
-			  {
-				"title": "Classic White T-Shirt",
-				"subtitle": "See all our colors",
-				"default_action": {
-				  "type": "web_url",
-				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
-				  "messenger_extensions": true,
-				  "webview_height_ratio": "full"
-				}
-			  },
-			  {
-				"title": "Classic Blue T-Shirt",
+				"title": "Titre 1",
 				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",
-				"subtitle": "100% Cotton, 200% Comfortable",
+				"subtitle": "Sous titre 1",
 				"default_action": {
 				  "type": "web_url",
 				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
 				  "messenger_extensions": true,
 				  "webview_height_ratio": "full"
-				},
-				"buttons": [
-				  {
-					"title": "Shop Now",
-					"type": "web_url",
-					"url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
-					"messenger_extensions": true,
-					"webview_height_ratio": "full"           
-				  }
-				]        
+				}      
+			  },
+			  			  {
+				"title": "Titre 2",
+				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",
+				"subtitle": "Sous titre 2",
+				"default_action": {
+				  "type": "web_url",
+				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
+				  "messenger_extensions": true,
+				  "webview_height_ratio": "full"
+				}      
+			  },
+			  			  {
+				"title": "Titre 3",
+				"image_url": "http://clan-suf-lyon4.typepad.fr/clan_saintcasimir_groupe_/images/croix_suf.jpg",
+				"subtitle": "Sous titre 3",
+				"default_action": {
+				  "type": "web_url",
+				  "url": "https://fr.wikipedia.org/wiki/Scouts_unitaires_de_France",
+				  "messenger_extensions": true,
+				  "webview_height_ratio": "full"
+				}      
 			  }
 			]  
 		  }
