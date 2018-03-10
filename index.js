@@ -77,7 +77,7 @@ app.post('/webhook', (req, res) => {
 
 });
 
-const token = "EAACxWwMMMN4BAOC4nQ3QyAL5ZBQVXoBgVbPozukZCJ1V6SZCPZAzklAdyRIxJ6iCInZCLuPw7pYPq7R84qfZC2TSBGzF0phxmDdzQJYygUCa5hFW1QlMhAqH1ZAbAcHb2gojTbR8b1EJFysvpVRZBIhAUiWjT1e6xE4Vxs5mXT8XGwZDZD"
+const token = process.env.mytoken
 
 function handleQuickReply(sender_psid, received_message) {
   let response;
