@@ -82,6 +82,10 @@ const token = process.env.mytoken
 // Handles quick replies
 function handleQuickReply(sender_psid, received_message) {
   let response;
+  
+  
+  //----------------------3 possibilitées d'entrées--------------------------//
+  
   if(received_message.payload === 'Chef'){
 	response = { "text": "Canon ! Merci de ton engagement pour ta troupe, comment puis-je aider ? 🤖",
 			"quick_replies":[
@@ -154,6 +158,8 @@ function handleQuickReply(sender_psid, received_message) {
 	callSendAPI(sender_psid, response);
   }
   
+  //------------------------------------Sous menus---------------------------------------//
+  
   
     if(received_message.payload === 'Contact'){
 	response = { "text": "Parfait, voici la ligne directe de l'ENE : 0183757140"}
@@ -166,7 +172,7 @@ function handleQuickReply(sender_psid, received_message) {
 			"is_reusable":true
 			}
 		},
-		"quick_replies":[{"content_type":"text","title":"Retour au menu\u21A9","payload":"Autre question"}]
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}]
 	}
 	callSendAPI(sender_psid, response);
   }
@@ -174,11 +180,16 @@ function handleQuickReply(sender_psid, received_message) {
   if(received_message.payload === 'ecris'){
 	response = { 
 		"text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 \u000A P.S : c’est un équipier sympa ! ",
-		"quick_replies":[{"content_type":"text","title":"Retour au menu\u21A9","payload":"Autre question"}
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
 	callSendAPI(sender_psid, response);
   }
+  
+  
+  //-------------------------------------Retour au menu---------------------------//
+  
+  
   
   
     if(received_message.payload === 'Autre question'){
