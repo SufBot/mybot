@@ -51,7 +51,7 @@ app.post('/webhook', (req, res) => {
 	  // Get the sender PSID
 	  let sender_psid = webhook_event.sender.id;
 	  console.log('Sender PSID: ' + sender_psid);
-	  console.log("Entry : "+entry);
+	  console.log("Entry : "+entry.attachments);
 
 	  // Check if the event is a message or postback and
 	  // pass the event to the appropriate handler function
@@ -163,9 +163,10 @@ function handleQuickReply(sender_psid, received_message) {
   
   
       if(received_message.payload === 'CEP'){
-	response = { "text": "Maîtrise formée, Maîtrise au taquet ! 💪"}
-	callSendAPI(sender_psid, response);
+	/* response = { "text": "Maîtrise formée, Maîtrise au taquet ! 💪"}
+	callSendAPI(sender_psid, response); */
 	response = {
+	"text": 'Maîtrise formée, Maîtrise au taquet ! 💪',
     "attachment":{
 		  "type":"image", 
 		  "payload":{
@@ -175,12 +176,12 @@ function handleQuickReply(sender_psid, received_message) {
 		}
 	}
 	callSendAPI(sender_psid, response);
-	response = { 
+	/* response = { 
 		"text": "Sinon, il reste sûrement une place dans notre prochain CEP : https://goo.gl/kwXVfq",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
-	callSendAPI(sender_psid, response);
+	callSendAPI(sender_psid, response); */
   }
   
   
