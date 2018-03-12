@@ -168,17 +168,19 @@ function handleQuickReply(sender_psid, received_message) {
     "attachment":{
 		  "type":"image", 
 		  "payload":{
-			"url":"https://cuke7.github.io/mybot/image1.png", 
+			"url":"https://cuke7.github.io/mybot/image2.png", 
 			"is_reusable":true
 			}
-		},
-		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}]
+		}
 	}
 	callSendAPI(sender_psid, response);
+	response = { 
+		"text": "Sinon, il reste sûrement une place dans notre prochain CEP : https://goo.gl/kwXVfq",
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
+		]
+		}
+	callSendAPI(sender_psid, response);
   }
-  
-  
-  
   
   
     if(received_message.payload === 'contact'){
@@ -223,6 +225,54 @@ function handleQuickReply(sender_psid, received_message) {
 		}
 	callSendAPI(sender_psid, response);
   }
+  
+  
+  
+  
+  if(received_message.payload === 'camp'){
+	response = { "text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 💪",
+				"quick_replies":[
+			  {
+				"content_type":"text",
+				"title":"À définir  🏕",
+				"payload":"a definir"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Le feu 🔥",
+				"payload":"feu"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Le raid 🐾",
+				"payload":"raid"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Technique scoute 🙌🏻",
+				"payload":"technique scoute"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Envoie  📩",
+				"payload":"ecris 2"
+			  }
+			]
+	}
+	callSendAPI(sender_psid, response);
+  }
+  
+  
+    if(received_message.payload === 'ecris 2'){
+	response = { 
+		"text": "Tu n’as pas trouvé ton bonheur ! Tape ton message ici et mon programmateur reviendra vers toi afin d’y répondre au mieux 😉 ",
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
+		]
+		}
+	callSendAPI(sender_psid, response);
+  }
+  
+  
   
   
   //-------------------------------------Retour au menu---------------------------//
