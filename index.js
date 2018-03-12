@@ -96,7 +96,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  },
 			  {
 				"content_type":"text",
-				"title":"CEP-Taux d'encadrement",
+				"title":"CEP-Tx d'encadrement",
 				"payload":"CEP"
 			  },
 			  {
@@ -123,7 +123,7 @@ function handleQuickReply(sender_psid, received_message) {
 			"quick_replies":[
 			  {
 				"content_type":"text",
-				"title":"Écris pour Woodcraft 📗📝",
+				"title":"Woodcraft 📗📝",
 				"payload":"woodcraft"
 			  },
 			  {
@@ -162,9 +162,8 @@ function handleQuickReply(sender_psid, received_message) {
   
   
       if(received_message.payload === 'CEP'){
-	response = { "text": "Maîtrise formée, Maîtrise au taquet ! 💪"}
-	callSendAPI(sender_psid, response);
 	response = {
+	"text": "Maîtrise formée, Maîtrise au taquet ! 💪",
     "attachment":{
 		  "type":"image", 
 		  "payload":{
