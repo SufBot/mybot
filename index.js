@@ -159,7 +159,7 @@ function handleQuickReply(sender_psid, received_message) {
 	callSendAPI(sender_psid, response);
   }
   
-  //------------------------------------Sous menus---------------------------------------//
+  //------------------------------------Sous menus-----------------------------------------//
   
   
       if(received_message.payload === 'CEP'){
