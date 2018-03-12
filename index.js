@@ -253,6 +253,37 @@ function handlePostback(sender_psid, received_postback) {
   // Get the payload for the postback
   let payload = received_postback.payload;
 
+  if(payload === 'retour') {
+		response = { "text": "Une autre question ? \u000A \u23E9 Rappelle-moi juste qui tu es ⁉️",
+				"quick_replies":[
+			  {
+				"content_type":"text",
+				"title":"Un chef éclaireur 👨",
+				"payload":"Chef"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Un éclaireur 👦🏼",
+				"payload":"éclaireur"
+			  },
+			  {
+				"content_type":"text",
+				"title":"Autre 😎",
+				"payload":"Autre"
+			  }
+			]
+	}
+	callSendAPI(sender_psid, response);
+	}
+  
+  
+    if(payload === 'message du moment') {
+		response = { "text": "Une autre question ? \u000A \u23E9 Voici le message du moment : "}
+		callSendAPI(sender_psid, response);
+	}
+  
+  
+  
   if(payload === 'GET_STARTED') {
 		callSendAPIGetName(sender_psid);
 	}
