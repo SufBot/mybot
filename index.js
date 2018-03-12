@@ -84,7 +84,7 @@ function handleQuickReply(sender_psid, received_message) {
   let response;
   
   
-  //----------------------3 possibilitées d'entrées--------------------------//
+  //----------------------3 possibilitées au début --------------------------//
   
   if(received_message.payload === 'Chef'){
 	response = { "text": "Canon ! Merci de ton engagement pour ta troupe, comment puis-je aider ? 🤖",
@@ -180,6 +180,24 @@ function handleQuickReply(sender_psid, received_message) {
   if(received_message.payload === 'ecris'){
 	response = { 
 		"text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 \u000A P.S : c’est un équipier sympa ! ",
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
+		]
+		}
+	callSendAPI(sender_psid, response);
+  }
+  
+    if(received_message.payload === 'photo chef'){
+	response = { 
+		"text": "Hum ! On est super friand des dernières photos d’activité ! Tu peux facilement les déposer ici : https://goo.gl/kFCpKA \u000A Sélectionne tes plus belles photos en uniforme !",
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
+		]
+		}
+	callSendAPI(sender_psid, response);
+  }
+  
+      if(received_message.payload === 'woodcraft'){
+	response = { 
+		"text": "Un sujet te passionne 📝, tente ta chance et écris nous  à cette adresse mail : woodcraft@scouts-unitaires.org \u000A C’est super facile tu verras !",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
