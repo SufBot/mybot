@@ -92,7 +92,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  {
 				"content_type":"text",
 				"title":"Mon camp scout 🏕",
-				"payload":"Camp"
+				"payload":"camp"
 			  },
 			  {
 				"content_type":"text",
@@ -102,12 +102,12 @@ function handleQuickReply(sender_psid, received_message) {
 			  {
 				"content_type":"text",
 				"title":"Envoie de 📸",
-				"payload":"Photo chef"
+				"payload":"photo chef"
 			  },
 			  {
 				"content_type":"text",
 				"title":"Nous 📞?",
-				"payload":"Contact"
+				"payload":"contact"
 			  },
 			  {
 				"content_type":"text",
@@ -129,7 +129,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  {
 				"content_type":"text",
 				"title":"Envoie des 📸",
-				"payload":"Photo scout"
+				"payload":"photo scout"
 			  },
 			  {
 				"content_type":"text",
@@ -146,7 +146,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  {
 				"content_type":"text",
 				"title":"Envoie des 📸",
-				"payload":"Photo autre"
+				"payload":"photo autre"
 			  },
 			  {
 				"content_type":"text",
@@ -161,7 +161,7 @@ function handleQuickReply(sender_psid, received_message) {
   //------------------------------------Sous menus---------------------------------------//
   
   
-    if(received_message.payload === 'Contact'){
+    if(received_message.payload === 'contact'){
 	response = { "text": "Parfait, voici la ligne directe de l'ENE : 0183757140"}
 	callSendAPI(sender_psid, response);
 	response = {
@@ -179,7 +179,7 @@ function handleQuickReply(sender_psid, received_message) {
   
   if(received_message.payload === 'ecris'){
 	response = { 
-		"text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉 \u000A P.S : c’est un équipier sympa ! ",
+		"text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉\u000AP.S : c’est un équipier sympa ! ",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
@@ -188,7 +188,7 @@ function handleQuickReply(sender_psid, received_message) {
   
     if(received_message.payload === 'photo chef'){
 	response = { 
-		"text": "Hum ! On est super friand des dernières photos d’activité ! Tu peux facilement les déposer ici : https://goo.gl/kFCpKA \u000A Sélectionne tes plus belles photos en uniforme !",
+		"text": "Hum ! On est super friand des dernières photos d’activité ! Tu peux facilement les déposer ici : https://goo.gl/kFCpKA\u000ASélectionne tes plus belles photos en uniforme !",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
@@ -197,7 +197,7 @@ function handleQuickReply(sender_psid, received_message) {
   
       if(received_message.payload === 'woodcraft'){
 	response = { 
-		"text": "Un sujet te passionne 📝, tente ta chance et écris nous  à cette adresse mail : woodcraft@scouts-unitaires.org \u000A C’est super facile tu verras !",
+		"text": "Un sujet te passionne 📝, tente ta chance et écris nous  à cette adresse mail : woodcraft@scouts-unitaires.org\u000AC’est super facile tu verras !",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
@@ -211,7 +211,7 @@ function handleQuickReply(sender_psid, received_message) {
   
   
     if(received_message.payload === 'Autre question'){
-	response = { "text": "Une autre question ? \u000A \u23E9 Rappelle-moi juste qui tu es ⁉️",
+	response = { "text": "Une autre question ?\u000A\u23E9 Rappelle-moi juste qui tu es ⁉️",
 				"quick_replies":[
 			  {
 				"content_type":"text",
@@ -240,7 +240,7 @@ function handleMessage(sender_psid, received_message) {
 	let response
 	/* if(received_message.text==='Retour' || received_message.text==='retour'){
 		let response = {
-		"text": "Re-bonjour, \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Rappelle-moi juste qui tu es ⁉️",
+		"text": "Re-bonjour,\u000ATi ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻\u000A\u23E9 Rappelle-moi juste qui tu es ⁉️",
 		"quick_replies":[
 			  {
 				"content_type":"text",
@@ -272,7 +272,7 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   if(payload === 'retour') {
-		response = { "text": "Une autre question ? \u000A \u23E9 Rappelle-moi juste qui tu es ⁉️",
+		response = { "text": "Une autre question ?\u000A\u23E9 Rappelle-moi juste qui tu es ⁉️",
 				"quick_replies":[
 			  {
 				"content_type":"text",
@@ -319,7 +319,7 @@ function callSendAPIGetName(sender_psid) {
 		let bodyObj = JSON.parse(body);
         let name = bodyObj.first_name;
 		let response = {
-		"text": "Bonjour "+name+", \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
+		"text": "Bonjour "+name+",\u000ATi ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻\u000A\u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
 		"quick_replies":[
 			  {
 				"content_type":"text",
@@ -342,7 +342,7 @@ function callSendAPIGetName(sender_psid) {
     } else {
       console.error("Unable to get name:" + err);
 	  let response = {
-		"text": "Bonjour, \u000A Ti ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻 \u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
+		"text": "Bonjour,\u000ATi ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻\u000A\u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
 		"quick_replies":[
 			  {
 				"content_type":"text",
