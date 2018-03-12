@@ -278,7 +278,7 @@ function handlePostback(sender_psid, received_postback) {
   
   
     if(payload === 'message du moment') {
-		response = { "text": "Une autre question ? \u000A \u23E9 Voici le message du moment : "}
+		response = { "text": "\u23E9 Voici le message du moment : "}
 		callSendAPI(sender_psid, response);
 	}
   
