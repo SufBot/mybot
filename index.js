@@ -96,7 +96,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  },
 			  {
 				"content_type":"text",
-				"title":"CEP-Tx d'encadrement",
+				"title":"CEP - Encadrement ⁉️",
 				"payload":"CEP"
 			  },
 			  {
@@ -366,8 +366,16 @@ function handlePostback(sender_psid, received_postback) {
   
   
     if(payload === 'message du moment') {
-		response = { "text": "\u23E9 Voici le message du moment : "}
-		callSendAPI(sender_psid, response);
+		response = {
+    "attachment":{
+		  "type":"image", 
+		  "payload":{
+			"url":"https://cuke7.github.io/mybot/image3.png", 
+			"is_reusable":true
+			}
+		}
+	}
+	callSendAPI(sender_psid, response);
 	}
   
   
