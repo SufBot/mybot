@@ -161,6 +161,26 @@ function handleQuickReply(sender_psid, received_message) {
   //------------------------------------Sous menus---------------------------------------//
   
   
+      if(received_message.payload === 'CEP'){
+	response = { "text": "Maîtrise formée, Maîtrise au taquet ! 💪"}
+	callSendAPI(sender_psid, response);
+	response = {
+    "attachment":{
+		  "type":"image", 
+		  "payload":{
+			"url":"https://cuke7.github.io/mybot/image1.png", 
+			"is_reusable":true
+			}
+		},
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}]
+	}
+	callSendAPI(sender_psid, response);
+  }
+  
+  
+  
+  
+  
     if(received_message.payload === 'contact'){
 	response = { "text": "Parfait, voici la ligne directe de l'ENE : 0183757140"}
 	callSendAPI(sender_psid, response);
