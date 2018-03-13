@@ -190,7 +190,7 @@ function handleQuickReply(sender_psid, received_message) {
     "attachment":{
 		  "type":"image", 
 		  "payload":{
-			"url":"https://cuke7.github.io/mybot/image1.png", 
+			"url":"https://cuke7.github.io/mybot/image2.png", 
 			"is_reusable":true
 			}
 		},
