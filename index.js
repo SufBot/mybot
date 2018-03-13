@@ -171,7 +171,8 @@ function handleQuickReply(sender_psid, received_message) {
 			"url":"https://cuke7.github.io/mybot/image2.png", 
 			"is_reusable":true
 			}
-		}
+		},
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}]
 	}
 	callSendAPI(sender_psid, response);
 	response = { 
