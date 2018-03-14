@@ -400,9 +400,7 @@ function handleQuickReply(sender_psid, received_message) {
 
 }
 
-// function handleMessage(sender_psid, received_message) {
-// }
-
+function handleMessage(sender_psid, received_message) {}
 
 //----------------------------------------------------------------------------------------------------------
 // ------------------------------------Handles messaging_postbacks events-----------------------------------
