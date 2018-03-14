@@ -276,7 +276,7 @@ function handleQuickReply(sender_psid, received_message) {
   
     if(received_message.payload === 'ecris 2'){
 	response = { 
-		"text": "Tu n’as pas trouvé ton bonheur ! Tape ton message ici et mon programmateur reviendra vers toi afin d’y répondre au mieux 😉 ",
+		"text": "Tu n’as pas trouvé ton bonheur ! Écris ta question ou ton message, on sera hyper contents d'y répondre ! 😉",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
@@ -301,6 +301,15 @@ function handleQuickReply(sender_psid, received_message) {
 	callSendAPI(sender_psid, response);
   }
   
+  
+     if(received_message.payload === 'assurance'){
+	response = { 
+		"text": "\u2728 La chance, on a une nouvelle assurance auto SUF ! \u2728\u000ACette assurance : \u000A🔵 Passe de 25 à 15 €/jour* et si aucun sinistre n’est déclaré d’ici la fin du camp, tu passes même à 10 €/jour !\u000A🔵 Permet d’éviter de faire fonctionner le contrat d’assurance du propriétaire du véhicule et de lui faire perdre éventuellement le bonus en cas d’accident responsable ou non.\u000A🔵 Est prévue pour s’appliquer aux activités SUF (#basdecaisse…)\u000A⏩ Comment marche-t-elle ?\u000A1. Souscris à l’assurance via l’onglet « Admin » de ton unité ou depuis ton DDC au plus tard la veille de l’utilisation du véhicule ;\u000A2. Plus de chèque, le paiement se fait par décompte directement dans Céphée à la fin du camp ;\u000A3. La franchise est de 500 €.\u000A----------(*) Journée calendaire de 0 h à minuit. Pour une période, n’omets pas le premier et le dernier jour (ex : du 28/07 au 03/08 = 7 jours).",
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
+		]
+		}
+	callSendAPI(sender_psid, response);
+  }
   
   
   
