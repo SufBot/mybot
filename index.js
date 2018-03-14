@@ -275,6 +275,25 @@ function handleQuickReply(sender_psid, received_message) {
   
   
   
+  if(received_message.payload === 'raid'){
+	response = { "text": "Test envoi de PDF :"}
+	callSendAPI(sender_psid, response);
+	response = {
+    "attachment":{
+		  "type":"file", 
+		  "payload":{
+			"url":"https://cuke7.github.io/mybot/pdf.pdf", 
+			"is_reusable":true
+			}
+		},
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}]
+	}
+	callSendAPI(sender_psid, response);
+  }
+  
+  
+  
+  
   
   //-------------------------------------Retour au menu---------------------------//
   
