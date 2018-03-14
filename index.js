@@ -414,34 +414,17 @@ function callSendAPIGetName(sender_psid) {
     "qs": { "access_token": token,"fields": "first_name" },
     "method": "GET",
   }, (err, res, body) => {
+	let name;
     if (!err) {
 		let bodyObj = JSON.parse(body);
-        let name = bodyObj.first_name;
-		let response = {
-		"text": "Bonjour "+name+",\u000ATi ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻\u000A\u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
-		"quick_replies":[
-			  {
-				"content_type":"text",
-				"title":"Un chef éclaireur 👨",
-				"payload":"Chef"
-			  },
-			  {
-				"content_type":"text",
-				"title":"Un éclaireur 👦🏼",
-				"payload":"éclaireur"
-			  },
-			  {
-				"content_type":"text",
-				"title":"Autre 😎",
-				"payload":"Autre"
-			  }
-			]
-		}
-		callSendAPI(sender_psid, response);
+        name = bodyObj.first_name;
     } else {
-      console.error("Unable to get name:" + err);
-	  let response = {
-		"text": "Bonjour,\u000ATi ta ti ti ! 🤖 Je suis Michel le chatbot de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻\u000A\u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
+		console.error("Unable to get name:" + err);
+		name=" ";
+    }
+	
+	let response = {
+		"text": "Bonjour "+name+" !,\u000A Je suis Michel 🤖 de la Branche Éclaireurs SUF, merci de me contacter ! 🙌🏻\u000A Je suis là pour répondre à tes questions !\u000A \u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
 		"quick_replies":[
 			  {
 				"content_type":"text",
@@ -461,7 +444,6 @@ function callSendAPIGetName(sender_psid) {
 			]
 		}
 		callSendAPI(sender_psid, response);
-    }
   }); 
 }
 
