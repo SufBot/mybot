@@ -202,25 +202,35 @@ function handleQuickReply(sender_psid, received_message) {
   
   if(received_message.payload === 'ecris'){
 	response = { 
-		"text": "Super ! Tape ton message ici et mon programmateur reviendra vers toi pour y répondre au mieux 😉\u000AP.S : c’est un équipier sympa ! ",
+		"text": "Super ! Écris ta question ou ton message, on sera hyper contents d'y répondre ! 😉",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
 	callSendAPI(sender_psid, response);
   }
   
-    if(received_message.payload === 'photo chef'){
+  if(received_message.payload === 'photo scout'){
 	response = { 
-		"text": "Hum ! On est super friand des dernières photos d’activité ! Tu peux facilement les déposer ici : https://goo.gl/kFCpKA\u000ASélectionne tes plus belles photos en uniforme !",
+		"text": "Sélectionne tes plus belles photos d’activité en uniforme impeccable ou tenue de camp \u2728 !\u000A\u23E9 C’est simple, écris nous un mail à cette adresse mail : woodcraft@scouts-unitaires.org",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
 	callSendAPI(sender_psid, response);
   }
+  
+  
+   if(received_message.payload === 'photo chef'){
+	response = { 
+		"text": "Hum ! Je suis super friand des dernières photos d’activité ! Tu peux facilement les déposer juste ici : https://goo.gl/kFCpKA\u000ASélectionne tes plus belles photos en uniforme impeccable ou tenue de camp \u2728 !",
+		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
+		]
+		}
+	callSendAPI(sender_psid, response);
+	}
   
       if(received_message.payload === 'woodcraft'){
 	response = { 
-		"text": "Un sujet te passionne 📝, tente ta chance et écris nous  à cette adresse mail : woodcraft@scouts-unitaires.org\u000AC’est super facile tu verras !",
+		"text": "⏩ Défi Ascalon, photo de construction, blague, ton avis sur la progression…!\u000ARaconte nous tes aventures de pat’ en écrivant à woodcraft@scouts-unitaires.org et ton article sera publié dans un prochain numéro ! 📗",
 		"quick_replies":[{"content_type":"text","title":"Retour au menu 🔙","payload":"Autre question"}
 		]
 		}
@@ -231,12 +241,12 @@ function handleQuickReply(sender_psid, received_message) {
   
   
   if(received_message.payload === 'camp'){
-	response = { "text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 💪",
+	response = { "text": "Peux-tu préciser ta recherche :",
 				"quick_replies":[
 			  {
 				"content_type":"text",
-				"title":"À définir  🏕",
-				"payload":"a definir"
+				"title":"Assurance 🚙",
+				"payload":"assurance"
 			  },
 			  {
 				"content_type":"text",
@@ -250,8 +260,8 @@ function handleQuickReply(sender_psid, received_message) {
 			  },
 			  {
 				"content_type":"text",
-				"title":"Technique scoute 🙌🏻",
-				"payload":"technique scoute"
+				"title":"Activité Spé 🧗‍♂️🛶",
+				"payload":"activité"
 			  },
 			  {
 				"content_type":"text",
