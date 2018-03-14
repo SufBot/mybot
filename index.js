@@ -305,14 +305,20 @@ function handleQuickReply(sender_psid, received_message) {
 
 	if (received_message.payload === 'feu') {
 		response = {
-			"text": "Allumez le feu ! Allumez le feu ! 🎤"
+			"text": "Allumez le feu ! Allumez le feu ! 🎤",
+			"quick_replies": [{
+					"content_type": "text",
+					"title": "Retour au menu 🔙",
+					"payload": "Autre question"
+				}
+			]
 		}
 		callSendAPI(sender_psid, response);
 		response = {
 			"attachment": {
 				"type": "file",
 				"payload": {
-					"url": "https://cuke7.github.io/mybot/Feu - Fiche pratique.pdf",
+					"url": "https://cuke7.github.io/mybot/Feu_Fiche_pratique.pdf",
 					"is_reusable": true
 				}
 			},
@@ -328,14 +334,20 @@ function handleQuickReply(sender_psid, received_message) {
 
 	if (received_message.payload === 'raid') {
 		response = {
-			"text": "🛤 “Le raid construit des hommes de caractère, capable de se tirer d’affaires en toutes circonstances. Et d’en entraîner d’autres dans leur sillage.” Michel Menu ⛰\u000A"
+			"text": "🛤 “Le raid construit des hommes de caractère, capable de se tirer d’affaires en toutes circonstances. Et d’en entraîner d’autres dans leur sillage.” Michel Menu ⛰\u000A",
+			"quick_replies": [{
+					"content_type": "text",
+					"title": "Retour au menu 🔙",
+					"payload": "Autre question"
+				}
+			]
 		}
 		callSendAPI(sender_psid, response);
 		response = {
 			"attachment": {
 				"type": "file",
 				"payload": {
-					"url": "https://cuke7.github.io/mybot/Raid - Fiche pratique.pdf",
+					"url": "https://cuke7.github.io/mybot/Raid_Fiche_pratique.pdf",
 					"is_reusable": true
 				}
 			},
