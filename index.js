@@ -260,7 +260,7 @@ function handleQuickReply(sender_psid, received_message) {
 			  },
 			  {
 				"content_type":"text",
-				"title":"Activité Spé 🧗‍♂️🛶",
+				"title":"Activité Spé \U1F9D7♂️🛶",
 				"payload":"activité"
 			  },
 			  {
