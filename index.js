@@ -492,11 +492,11 @@ function callSendAPIGetName(sender_psid) {
 			"text": "Bonjour " + name + " !\u000AJe suis Louis 🤖 de la Branche Éclaireurs SUF, merci de me contacter !\u000A\u000A🙌🏻  Je suis là pour répondre à tes questions !\u000A\u000A\u23E9 Avant de commencer, peux-tu me dire qui tu es ⁉️",
 			"quick_replies": [{
 					"content_type": "text",
-					"title": "Un éclaireur 👨",
+					"title": "Un chef éclaireur 👨",
 					"payload": "Chef"
 				}, {
 					"content_type": "text",
-					"title": "Un chef éclaireur 👦🏼",
+					"title": "Un éclaireur 👦🏼",
 					"payload": "éclaireur"
 				}, {
 					"content_type": "text",
