@@ -422,7 +422,6 @@ function handleMessage(sender_psid, received_message) {
 					"content_type": "text",
 					"title": "Un chef éclaireur 👨",
 					"payload": "Chef",
-					"image_url":"http://example.com/img/red.png"
 				}, {
 					"content_type": "text",
 					"title": "Un éclaireur 👦🏼",
