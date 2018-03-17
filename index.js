@@ -412,7 +412,30 @@ function handleQuickReply(sender_psid, received_message) {
 
 }
 
-function handleMessage(sender_psid, received_message) {}
+function handleMessage(sender_psid, received_message) {
+	let response;
+	
+	if(received_message.text === "test"){
+		response = {
+			"text": "Une autre question ?\u000A\u23E9 Rappelle-moi juste qui tu es ⁉️",
+			"quick_replies": [{
+					"content_type": "text",
+					"title": "Un chef éclaireur 👨",
+					"payload": "Chef"
+				}, {
+					"content_type": "text",
+					"title": "Un éclaireur 👦🏼",
+					"payload": "éclaireur"
+				}, {
+					"content_type": "text",
+					"title": "Autre 😎",
+					"payload": "Autre"
+				}
+			]
+		}
+		callSendAPI(sender_psid, response);
+	}
+}
 
 //----------------------------------------------------------------------------------------------------------
 // ------------------------------------Handles messaging_postbacks events-----------------------------------
