@@ -159,7 +159,7 @@ function handleQuickReply(sender_psid, received_message) {
 			"attachment": {
 				"type": "image",
 				"payload": {
-					"url": "https://cuke7.github.io/mybot/image2.png",
+					"url": "https://sufbot.github.io/mybot/image2.png",
 					"is_reusable": true
 				}
 			},
@@ -218,7 +218,7 @@ function handleQuickReply(sender_psid, received_message) {
 			"attachment": {
 				"type": "image",
 				"payload": {
-					"url": "https://cuke7.github.io/mybot/image1.png",
+					"url": "https://sufbot.github.io/mybot/image1.png",
 					"is_reusable": true
 				}
 			},
@@ -318,7 +318,7 @@ function handleQuickReply(sender_psid, received_message) {
 			"attachment": {
 				"type": "file",
 				"payload": {
-					"url": "https://cuke7.github.io/mybot/Feu_Fiche_pratique.pdf",
+					"url": "https://sufbot.github.io/mybot/Feu_Fiche_pratique.pdf",
 					"is_reusable": true
 				}
 			},
@@ -347,7 +347,7 @@ function handleQuickReply(sender_psid, received_message) {
 			"attachment": {
 				"type": "file",
 				"payload": {
-					"url": "https://cuke7.github.io/mybot/Raid_Fiche_pratique.pdf",
+					"url": "https://sufbot.github.io/mybot/Raid_Fiche_pratique.pdf",
 					"is_reusable": true
 				}
 			},
@@ -413,28 +413,7 @@ function handleQuickReply(sender_psid, received_message) {
 }
 
 function handleMessage(sender_psid, received_message) {
-	let response;
-	
-	if(received_message.text === "test"){
-		response = {
-			"text": "Une autre question ?\u000A\u23E9 Rappelle-moi juste qui tu es ⁉️",
-			"quick_replies": [{
-					"content_type": "text",
-					"title": "Un chef éclaireur 👨",
-					"payload": "Chef",
-				}, {
-					"content_type": "text",
-					"title": "Un éclaireur 👦🏼",
-					"payload": "éclaireur"
-				}, {
-					"content_type": "text",
-					"title": "Autre 😎",
-					"payload": "Autre"
-				}
-			]
-		}
-		callSendAPI(sender_psid, response);
-	}
+
 }
 
 //----------------------------------------------------------------------------------------------------------
@@ -472,7 +451,7 @@ function handlePostback(sender_psid, received_postback) {
 			"attachment": {
 				"type": "image",
 				"payload": {
-					"url": "https://cuke7.github.io/mybot/image3.png",
+					"url": "https://sufbot.github.io/mybot/image3.png",
 					"is_reusable": true
 				}
 			},
