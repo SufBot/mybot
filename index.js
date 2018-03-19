@@ -17,7 +17,7 @@ const express = require('express')
 
 	// Index route
 	app.get('/', function (req, res) {
-		res.send('Hello world, I am a chat bot')
+		res.send('Hello world, je suis le chat bot de la branche éclaireur des SUF !')
 	})
 
 	// for Facebook verification
