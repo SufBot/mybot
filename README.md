@@ -1,4 +1,6 @@
-# Bienvenue sur le repository du chat bot de la page "branche éclaireur".
-======
-## index.js link
+# Bienvenue !
+
+Repository du chat bot de la page Facebook de la branche éclaireur.
+
+## lien vers le code
 Cliquer <a href="myFile.js" download>ici</a> pour télécharger la dernière version du index.js
