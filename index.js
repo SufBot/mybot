@@ -452,7 +452,7 @@ function handlePostback(sender_psid, received_postback) {
 			"attachment": {
 				"type": "image",
 				"payload": {
-					"url": "https://sufbot.github.io/mybot/image3.png",
+					"url": "https://sufbot.github.io/mybot/photodumois.png",
 					"is_reusable": true
 				}
 			},
