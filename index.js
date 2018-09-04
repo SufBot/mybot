@@ -414,7 +414,25 @@ function handleQuickReply(sender_psid, received_message) {
 }
 
 function handleMessage(sender_psid, received_message) {
+	let msg;
 
+	if (received_message.text === "Un chef éclaireur") {
+		msg = received_message;
+		msg.payload = 'Chef';
+		handleQuickReply(sender_psid, msg);
+	}
+
+	if (received_message.text === "Un éclaireur") {
+		msg = received_message;
+		msg.payload = 'éclaireur';
+		handleQuickReply(sender_psid, msg);
+	}
+
+	if (received_message.text === "Autre") {
+		msg = received_message;
+		msg.payload = 'Autre';
+		handleQuickReply(sender_psid, msg);
+	}
 }
 
 //----------------------------------------------------------------------------------------------------------
