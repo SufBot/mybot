@@ -41,23 +41,26 @@ const express = require('express')
 
 				// Gets the body of the webhook event
 				let webhook_event = entry.messaging[0];
-				console.log('RECEIVED :'+webhook_event.message);
+				console.log('RECEIVED :' + webhook_event.message);
 
 				// Get the sender PSID
 				let sender_psid = webhook_event.sender.id;
 				console.log('Sender PSID: ' + sender_psid);
-				send_typing_indicator(sender_psid);
+
 				// Check if the event is a message or postback and
 				// pass the event to the appropriate handler function
 				if (webhook_event.message) {
 					if (webhook_event.message.quick_reply) {
+						send_typing_indicator(sender_psid);
 						handleQuickReply(sender_psid, webhook_event.message.quick_reply);
 					} else {
+						send_typing_indicator(sender_psid);
 						handleMessage(sender_psid, webhook_event.message);
 					}
 				}
 				if (webhook_event.postback) {
-					console.log("Post back recu :"+ webhook_event.postback);
+					send_typing_indicator(sender_psid);
+					console.log("Post back recu :" + webhook_event.postback);
 					handlePostback(sender_psid, webhook_event.postback);
 				}
 
@@ -413,9 +416,7 @@ function handleQuickReply(sender_psid, received_message) {
 
 }
 
-function handleMessage(sender_psid, received_message) {
-
-}
+function handleMessage(sender_psid, received_message) {}
 
 //----------------------------------------------------------------------------------------------------------
 // ------------------------------------Handles messaging_postbacks events-----------------------------------
@@ -546,7 +547,7 @@ function send_typing_indicator(sender_psid) {
 		"recipient": {
 			"id": sender_psid
 		},
-		"sender_action":"typing_on"
+		"sender_action": "typing_on"
 	}
 
 	// Send the HTTP request to the Messenger Platform
