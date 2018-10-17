@@ -539,6 +539,33 @@ function callSendAPI(sender_psid, response) {
 	});
 }
 
+function send_typing_indicator(sender_psid) {
+	// Construct the message body
+	let request_body = {
+		"messaging_type": "RESPONSE",
+		"recipient": {
+			"id": sender_psid
+		},
+		"sender_action":"typing_on"
+	}
+
+	// Send the HTTP request to the Messenger Platform
+	request({
+		"uri": "https://graph.facebook.com/v2.6/me/messages",
+		"qs": {
+			"access_token": token
+		},
+		"method": "POST",
+		"json": request_body
+	}, (err, res, body) => {
+		if (!err) {
+			console.log('typing indicator sent!')
+		} else {
+			console.error("Unable to send typing indicator:" + err);
+		}
+	});
+}
+
 // Spin up the server
 app.listen(app.get('port'), function () {
 	//console.log('running on port', app.get('port'))
