@@ -51,13 +51,16 @@ const express = require('express')
 				// pass the event to the appropriate handler function
 				if (webhook_event.message) {
 					if (webhook_event.message.quick_reply) {
+						send_typing_indicator(sender_psid);
 						handleQuickReply(sender_psid, webhook_event.message.quick_reply);
 					} else {
+						send_typing_indicator(sender_psid);
 						handleMessage(sender_psid, webhook_event.message);
 					}
 				}
 				if (webhook_event.postback) {
 					console.log("Post back recu :"+ webhook_event.postback)
+					send_typing_indicator(sender_psid);
 					handlePostback(sender_psid, webhook_event.postback);
 				}
 
