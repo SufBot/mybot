@@ -466,7 +466,7 @@ function handleMessage(sender_psid, received_message) {
 		}
 		callSendAPI(sender_psid, response);
 	}
-	if (received_message.text == "Un éclaireur") {
+	if (received_message.text == "Autre") {
 		let response = {
 			"text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 💪",
 			"quick_replies": [{
