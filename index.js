@@ -51,15 +51,15 @@ const express = require('express')
 				// pass the event to the appropriate handler function
 				if (webhook_event.message) {
 					if (webhook_event.message.quick_reply) {
-						send_typing_indicator(sender_psid);
+						//send_typing_indicator(sender_psid);
 						handleQuickReply(sender_psid, webhook_event.message.quick_reply);
 					} else {
-						send_typing_indicator(sender_psid);
+						//send_typing_indicator(sender_psid);
 						handleMessage(sender_psid, webhook_event.message);
 					}
 				}
 				if (webhook_event.postback) {
-					send_typing_indicator(sender_psid);
+					//send_typing_indicator(sender_psid);
 					console.log("Post back recu :" + webhook_event.postback);
 					handlePostback(sender_psid, webhook_event.postback);
 				}
@@ -416,7 +416,74 @@ function handleQuickReply(sender_psid, received_message) {
 
 }
 
-function handleMessage(sender_psid, received_message) {}
+function handleMessage(sender_psid, received_message) {
+	if (received_message.text == "Un chef éclaireur") {
+		let response = {
+			"text": "Canon ! Merci de ton engagement pour ta troupe, comment puis-je aider ? 🤖",
+			"quick_replies": [{
+					"content_type": "text",
+					"title": "Mon camp scout 🏕",
+					"payload": "camp"
+				}, {
+					"content_type": "text",
+					"title": "CEP - Encadrement ⁉️",
+					"payload": "CEP"
+				}, {
+					"content_type": "text",
+					"title": "Envoie de 📸",
+					"payload": "photo chef"
+				}, {
+					"content_type": "text",
+					"title": "Nous 📞?",
+					"payload": "contact"
+				}, {
+					"content_type": "text",
+					"title": "Écris moi 📩",
+					"payload": "ecris"
+				}
+			]
+		}
+		callSendAPI(sender_psid, response);
+	}
+
+	if (received_message.text == "Un éclaireur") {
+		let response = {
+			"text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 🤖",
+			"quick_replies": [{
+					"content_type": "text",
+					"title": "Woodcraft 📝",
+					"payload": "woodcraft"
+				}, {
+					"content_type": "text",
+					"title": "Envoie des 📸",
+					"payload": "photo scout"
+				}, {
+					"content_type": "text",
+					"title": "Écris moi 📩",
+					"payload": "ecris"
+				}
+			]
+		}
+		callSendAPI(sender_psid, response);
+	}
+	if (received_message.text == "Un éclaireur") {
+		let response = {
+			"text": "Enchanté ! Je suis ravi de parler avec toi, comment puis-je t’aider ? 💪",
+			"quick_replies": [{
+					"content_type": "text",
+					"title": "Envoie des 📸",
+					"payload": "photo autre"
+				}, {
+					"content_type": "text",
+					"title": "Écris moi 📩",
+					"payload": "ecris"
+				}
+			]
+		}
+		callSendAPI(sender_psid, response);
+
+	}
+}
 
 //----------------------------------------------------------------------------------------------------------
 // ------------------------------------Handles messaging_postbacks events-----------------------------------
